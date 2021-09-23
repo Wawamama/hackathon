@@ -25,14 +25,14 @@ router.post('/sign-up', async function(req,res,next){
   
     var newUserSave = await newUser.save();
   
-    req.session.user = {
-      name: newUserSave.name,
-      id: newUserSave._id,
-    }
+    // req.session.user = {
+    //   name: newUserSave.name,
+    //   id: newUserSave._id,
+    // }
+    
+    // console.log(req.session.user)
   
-    console.log(req.session.user)
-  
-    res.redirect('/sign-in')
+    res.redirect('/homepage')
   } else {
     res.redirect('/index')
   }
