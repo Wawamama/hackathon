@@ -5,6 +5,7 @@ var userModel = require('../models/users');
 var journeyModel = require('../models/journeys')
 
 const mongoose = require('mongoose');
+const { findByIdAndUpdate } = require('../models/users');
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
@@ -55,6 +56,16 @@ if(!alreadyExists) {
   req.session.dataCardTrain.push(trainInCard);
 } 
 res.render('tickets', {dataCardTrain: req.session.dataCardTrain });
+})
+
+router.get('/order-confirm', async (req, res, next) => {
+    //var train = await journeyModel.findById(req.query.tripId);
+    var trains = JSON.parse(req.query.trains)
+    var trainsIds = []
+    trains.forEach(train => trainsIds.push(train._id))
+    var updatedUser = await userModel.findByIdAndUpdate(req.session.user.id, { journeys: trainsIds}, { new: true })
+    res.redirect('/homepage')
+
 })
 
 module.exports = router;

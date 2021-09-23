@@ -39,11 +39,6 @@
                   </tr>
               </tbody>
         </table>
-<<<<<<< HEAD
-        <a href="#"><button class="btn confirm-btn">Confirm</button></a>
-    </div>
-=======
->>>>>>> 286082f80eab06a9e25db15f8db8614148e0d5bf
 
         <!-- <a href="#"><button class="btn confirm-btn">Confirm</button></a> -->
 
@@ -52,18 +47,46 @@
         </button>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-xl">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Confirmation commande</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                ...
+                <table>
+                  <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Journey</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Departure Time</th>
+                        <th scope="col">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% dataCardTrain.forEach(trip => { %>
+                          <tr>
+                              <td>1</td>
+                              <td><%= trip.departure %> / <%= trip.arrival %></td>
+                              <td><%= formateDate(trip.date) %></td>
+                              <td><%= trip.departureTime %></td>
+                              <td><%= trip.price %> €</td>
+                          </tr>
+                        <% })%>
+      
+                        <tr class='total-row'>
+                            <td>Total</td>
+                            <td colspan="3"></td>
+                            <td>387 €</td>
+                        </tr>
+                    </tbody>
+              </table>
+      
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                <button type="button" class="btn btn-primary">Confirmer</button>
+                <a href='/order-confirm?trains=<%= JSON.stringify(dataCardTrain) %>'><button type="button" class="btn btn-primary">Confirmer</button></a>
               </div>
             </div>
           </div>
