@@ -17,7 +17,7 @@
                     <div class="cities"><%=train.departure %> / <%=train.arrival %></div>
                     <div class="departure">Departure at <%=train.departureTime %></div>
                     <div class="price"><%=train.price %> €</div>
-                    <a href="/tickets?tripId=<%= train.id%>"><button class="btn">OK</button></a>
+                    <a href="journeys/tickets?tripId=<%= train.id%>"><button class="btn">OK</button></a>
                 </li>
             <% }) %>
 
