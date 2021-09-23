@@ -5,12 +5,13 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    
+
     <%- include('header') %>
 
     <div class="forms-container">
       <div class="login-form">
         <form action="/signin" method="POST">
+          <h2>Sign-in</h2>
           <div class="form-field">
             <input type="text" name='email' placeholder="email" required>
           </div>
@@ -25,11 +26,16 @@
 
       <div class="signup-form">
         <form action="/signin" method="POST">
+          <h2>Sign-up</h2>
           <div class="form-field">
             <input type="text" name='name' placeholder="Name" required>
           </div>
           <div class="form-field">
             <input type="text" name='firstname' placeholder="First name" required>
+          </div>
+
+          <div class="form-field">
+            <input type="text" name='email' placeholder="email" required>
           </div>
           
           <div class="form-field">
