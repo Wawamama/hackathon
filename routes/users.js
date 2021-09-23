@@ -32,7 +32,7 @@ router.post('/sign-up', async function(req,res,next){
   
     console.log(req.session.user)
   
-    res.redirect('/signin')
+    res.redirect('/sign-in')
   } else {
     res.redirect('/index')
   }
