@@ -14,4 +14,12 @@ router.get('/', function(req, res, next) {
   res.render('index');
 });
 
+router.get('/homepage', async (req, res, next) => {
+  res.render('home', { title: 'Express' });
+})
+
+router.get('/no-train', async (req, res, next) => {
+  res.render('error', { title: 'Sorry, no train' });
+})
+
 module.exports = router;
