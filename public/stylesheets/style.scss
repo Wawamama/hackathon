@@ -161,6 +161,9 @@ input:valid {
     background-color: #fff;
     border-radius: 5px;
     padding: 0.5rem;
+    .price {
+        justify-self: end;
+    }
 }
 
 

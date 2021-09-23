@@ -224,4 +224,9 @@ input:valid {
   border-radius: 5px;
   padding: 0.5rem;
 }
+
+.trip-field .price {
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
 /*# sourceMappingURL=style.css.map */
