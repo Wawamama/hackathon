@@ -6,6 +6,20 @@
   </head>
   <body>
     <%- include('header') %>
-    
+    <div class="forms-container">
+      <div class="login-form">
+        <form action="/signin" method="POST">
+          <div class="form-field">
+            <input type="text" name='email' placeholder="email" required>
+          </div>
+          
+          <div class="form-field">
+              <input type="password" name='password' placeholder="password" required>
+          </div>
+        
+        <input type="submit" class='btn' value="Login">
+        </form>
+      </div>
+    </div>
   </body>
 </html>
