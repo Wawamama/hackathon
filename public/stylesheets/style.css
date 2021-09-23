@@ -20,6 +20,10 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+}
+
 /* HEADER */
 .header {
   display: -webkit-box;
@@ -188,5 +192,41 @@ input:valid {
   height: 240px;
   max-height: 40vh;
   margin-top: 5rem;
+}
+
+/* TRAINS PAGE */
+.trips {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0.75rem;
+  gap: 0.5rem;
+}
+
+.trip-field {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2rem;
+  width: 80vw;
+  max-width: 600px;
+  border: solid 1px #ccc;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.trip-field .price {
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 /*# sourceMappingURL=style.css.map */
