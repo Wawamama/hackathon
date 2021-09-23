@@ -87,6 +87,7 @@ a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  height: 80vh;
   gap: 3rem;
 }
 
