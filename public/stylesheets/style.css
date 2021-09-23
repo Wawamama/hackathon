@@ -137,8 +137,8 @@ input:valid {
   border: red;
 }
 
-input[type='submit'] {
-  padding: 0.5rem;
+.btn {
+  padding: 0.5rem 0.75rem;
   background-color: red;
   border: 0;
   color: white;
@@ -151,7 +151,7 @@ input[type='submit'] {
       align-self: center;
 }
 
-input[type='submit']:hover {
+.btn:hover {
   background-color: #b30606;
   -webkit-transition: 0.2s ease-in;
   transition: 0.2s ease-in;
