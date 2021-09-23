@@ -14,8 +14,6 @@ router.post('/sign-up', async function(req,res,next){
   var searchUser = await userModel.findOne({
     email: req.body.email
   })
-  
-  console.log(searchUser);
 
   if(!searchUser){
     var newUser = new userModel({

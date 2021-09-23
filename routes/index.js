@@ -22,4 +22,17 @@ router.get('/no-train', async (req, res, next) => {
   res.render('error', { title: 'Sorry, no train' });
 })
 
+router.post('/trains', async (req, res, next) => {
+
+  var searchTrains = await journeyModel.find({
+    departure: req.body.from,
+    arrival: req.body.to,
+    date: req.body.date
+  })
+console.log(searchTrains);
+
+
+  res.render('trains',{title: "Available Trains", searchTrains} );
+})
+
 module.exports = router;
