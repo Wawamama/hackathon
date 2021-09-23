@@ -15,6 +15,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/homepage', async (req, res, next) => {
+
+
+
+
   res.render('home', { title: 'Express' });
 })
 
@@ -36,6 +40,16 @@ if (searchTrains.length == 0){
 } else {
   res.render('trains',{title: "Available Trains", searchTrains, date: req.body.date} );
 }  
+})
+
+router.get('/tickets', async (req, res, next) => {
+
+var alreadyExist = false;
+
+
+
+
+  res.render('tickets', { });
 })
 
 module.exports = router;
