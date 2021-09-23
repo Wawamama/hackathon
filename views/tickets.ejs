@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Your tickets</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    
+    <%- include('header') %>
+
+    <div class="homepage-container">
+        <h2>My tickets :</h2>
+        <table>
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Journey</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Departure Time</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% dataCardTrain.forEach(trip => { %>
+                    <tr>
+                        <td>1</td>
+                        <td><%= trip.departure %> / <%= trip.arrival %></td>
+                        <td><%= trip.date %></td>
+                        <td>XX:00</td>
+                        <td><%= trip.price %>€</td>
+                    </tr>
+                  <% })%>
+
+
+                  <tr class='total-row'>
+                      <td colspan="4">Total</td>
+                      <td>387 €</td>
+                  </tr>
+              </tbody>
+        </table>
+    </div>
+  </body>
+</html>

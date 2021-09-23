@@ -141,6 +141,18 @@ input:valid {
         max-height: 40vh;
         margin-top: 5rem;
     }
+    table {
+        width: 90vw;
+        max-width: 900px;
+        border: solid 1px #ccc;
+        background-color: #fff;
+        tr .total-row {
+            background-color: $btn-color;
+        }
+        td {
+            text-align: center;
+        }
+    }
 }
 
 /* TRAINS PAGE */

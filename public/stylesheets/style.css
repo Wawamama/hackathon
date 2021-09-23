@@ -194,6 +194,21 @@ input:valid {
   margin-top: 5rem;
 }
 
+.homepage-container table {
+  width: 90vw;
+  max-width: 900px;
+  border: solid 1px #ccc;
+  background-color: #fff;
+}
+
+.homepage-container table tr .total-row {
+  background-color: red;
+}
+
+.homepage-container table td {
+  text-align: center;
+}
+
 /* TRAINS PAGE */
 .trips {
   display: -webkit-box;

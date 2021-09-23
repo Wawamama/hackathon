@@ -53,7 +53,7 @@ app.use(function(err, req, res, next) {
 
 // Helpers
 app.locals.formateDate = (date) => {
-  // formate date
+  return date.toLocaleString()
 }
 
 module.exports = app;
