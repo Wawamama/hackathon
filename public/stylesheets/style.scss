@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+$btn-color: red;
+$btn-hover: rgb(179, 6, 6);
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +13,7 @@ body {
   font-family: 'Roboto', sans-serif;
   background: rgb(170,209,245);
   background: linear-gradient(180deg, rgba(170,209,245,1) 0%, rgba(38,135,224,1) 100%);
+  min-height: 100vh;
 }
 
 a {
@@ -18,7 +22,6 @@ a {
 }
 
 /* HEADER */
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -50,6 +53,55 @@ a {
     }
   }
 }
+
+/* LOGIN PAGE */
+.forms-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+input[type='text'], input[type='password'] {
+    text-decoration: none;
+    border: 0;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    padding: 0.5rem;
+}
+
+input:focus,
+input:valid {
+    outline: 0;
+    border: $btn-color ;
+}
+
+input[type='submit'] {
+    height: 3rem;
+    background-color: $btn-color;
+    border: 0;
+    color: white;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 50%;
+    align-self: center;
+    &:hover {
+        background-color: $btn-hover;
+        transition: 0.2s ease-in;
+    }
+}
+
+
+
 
 
 

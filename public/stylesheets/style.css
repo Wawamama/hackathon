@@ -2,14 +2,17 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /*  GENERAL RULES */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: #aad1f5;
+  background: -webkit-gradient(linear, left top, left bottom, from(#aad1f5), to(#2687e0));
   background: linear-gradient(180deg, #aad1f5 0%, #2687e0 100%);
+  min-height: 100vh;
 }
 
 a {
@@ -19,35 +22,119 @@ a {
 
 /* HEADER */
 .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #cecece;
   width: 100vw;
   padding: 1rem 2rem;
   color: #000;
 }
+
 .header .logoDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 1rem;
 }
+
 .header .logoDiv img {
   height: 35px;
   width: 35px;
 }
+
 .header .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 2rem;
 }
+
 .header .nav a {
   color: #000;
 }
+
 .header .nav a:hover {
   color: #bb0303;
 }
 
+/* LOGIN PAGE */
+.forms-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 3rem;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+input[type='text'], input[type='password'] {
+  text-decoration: none;
+  border: 0;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
+}
+
+input:focus,
+input:valid {
+  outline: 0;
+  border: red;
+}
+
+input[type='submit'] {
+  height: 3rem;
+  background-color: red;
+  border: 0;
+  color: white;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 50%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+input[type='submit']:hover {
+  background-color: #b30606;
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+}
 /*# sourceMappingURL=style.css.map */
