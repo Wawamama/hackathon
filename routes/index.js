@@ -68,4 +68,11 @@ router.get('/order-confirm', async (req, res, next) => {
 
 })
 
+router.get('/last-trips', async function(req, res, next) {
+  console.log(req.session.user);
+  var userLastTrip = await userModel.findById(req.session.user.id).populate("journeys");
+  console.log(userLastTrip);
+  res.render('last-trips', { dataCardTrain: userLastTrip.journeys });
+});
+
 module.exports = router;
