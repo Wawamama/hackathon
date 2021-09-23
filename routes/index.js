@@ -24,4 +24,8 @@ router.get('/no-train', async (req, res, next) => {
   res.render('error', { title: 'Sorry, no train' });
 })
 
+router.get('/trains', async (req, res, next) => {
+  res.render('trains', { title: 'Available Trains' });
+})
+
 module.exports = router;
