@@ -11,8 +11,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/sign-up', async function(req,res,next){
 
-  console.log("Coucou");
-
   var searchUser = await userModel.findOne({
     email: req.body.email
   })
@@ -36,9 +34,9 @@ router.post('/sign-up', async function(req,res,next){
     
     console.log(req.session.user)
   
-    res.redirect('/')
+    res.redirect('/homepage')
   } else {
-    res.redirect('/index')
+    res.redirect('/')
   }
   
 })
@@ -55,9 +53,9 @@ router.post('/sign-in', async function(req,res,next){
       name: searchUser.name,
       id: searchUser._id
     }
-    res.redirect('/journey')
+    res.redirect('/homepage')
   } else {
-    res.render('login')
+    res.render('/')
   }
 
   
