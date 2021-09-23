@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+const mongoose = require('mongoose');
+
 var userModel = require('../models/users')
 
 router.get('/', function(req, res, next) {
@@ -10,57 +12,58 @@ router.get('/', function(req, res, next) {
 router.post('/sign-up', async function(req,res,next){
 
   var searchUser = await userModel.findOne({
-    email: req.body.emailFromFront
+    email: req.body.email
   })
   
   if(!searchUser){
     var newUser = new userModel({
-      username: req.body.usernameFromFront,
-      email: req.body.emailFromFront,
-      password: req.body.passwordFromFront,
+      name: req.body.name,
+      firstname: req.body.firstname,
+      email: req.body.email,
+      password: req.body.password,
     })
   
     var newUserSave = await newUser.save();
   
     req.session.user = {
-      name: newUserSave.username,
+      name: newUserSave.name,
       id: newUserSave._id,
     }
   
     console.log(req.session.user)
   
-    res.redirect('/journey')
+    res.redirect('/signin')
   } else {
     res.redirect('/index')
   }
   
 })
 
-router.post('/sign-in', async function(req,res,next){
+// router.post('/sign-in', async function(req,res,next){
 
-  var searchUser = await userModel.findOne({
-    email: req.body.emailFromFront,
-    password: req.body.passwordFromFront
-  })
+//   var searchUser = await userModel.findOne({
+//     email: req.body.email,
+//     password: req.body.password
+//   })
 
-  if(searchUser!= null){
-    req.session.user = {
-      name: searchUser.username,
-      id: searchUser._id
-    }
-    res.redirect('/journey')
-  } else {
-    res.render('login')
-  }
+//   if(searchUser!= null){
+//     req.session.user = {
+//       name: searchUser.name,
+//       id: searchUser._id
+//     }
+//     res.redirect('/journey')
+//   } else {
+//     res.render('login')
+//   }
 
   
-})
+// })
 
-router.get('/logout', function(req,res,next){
+// router.get('/logout', function(req,res,next){
 
-  req.session.user = null;
+//   req.session.user = null;
 
-  res.redirect('/index')
-})
+//   res.redirect('/index')
+// })
 
 module.exports = router;
