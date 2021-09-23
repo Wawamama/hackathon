@@ -11,26 +11,16 @@
     <div class="homepage-container">
         <h2>Tickets available on XX/XX/XX :</h2>
         <ul class='trips'>
-            <li class="trip-field">
-                <div class="cities">Paris / Lyon</div>
-                <div class="departure">Departure at 15:00</div>
-                <div class="price">93 €</div>
-                <button class="btn">OK</button>
-            </li>
 
-            <li class="trip-field">
-                <div class="cities">Paris / Lyon</div>
-                <div class="departure">Departure at 15:00</div>
-                <div class="price">93 €</div>
-                <button class="btn">OK</button>
-            </li>
-            
-            <li class="trip-field">
-                <div class="cities">Paris / Lyon</div>
-                <div class="departure">Departure at 15:00</div>
-                <div class="price">93 €</div>
-                <button class="btn">OK</button>
-            </li>
+            <% searchTrains.forEach(train => { %>
+                <li class="trip-field">
+                    <div class="cities"><%=train.departure %> / <%=train.arrival %></div>
+                    <div class="departure">Departure at <%=train.departureTime %></div>
+                    <div class="price"><%=train.price %> €</div>
+                    <button class="btn">OK</button>
+                </li>
+            <% }) %>
+
         </ul>
     </div>
   </body>
