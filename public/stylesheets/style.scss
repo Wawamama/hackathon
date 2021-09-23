@@ -68,6 +68,12 @@ ul {
     height: 80vh;
     gap: 3rem;
 }
+
+@media (max-width:640px) {
+    .forms-container {
+        flex-direction: column;
+    }
+}
 h2 {
     color:#fff;
     align-self: center;
