@@ -2,6 +2,7 @@
 
 $btn-color: red;
 $btn-hover: rgb(179, 6, 6);
+$pale-color: rgb(250, 143, 143);
 
 * {
   margin: 0;
@@ -144,13 +145,17 @@ input:valid {
     table {
         width: 90vw;
         max-width: 900px;
+        margin-top: 1rem;
         border: solid 1px #ccc;
         background-color: #fff;
-        tr.total-row {
-            background-color: $btn-color;
-        }
+        border-radius: 5px;
+        padding: 0.5rem;
         td {
             text-align: center;
+            padding: 1rem;
+        }
+        .total-row {
+            background-color: $pale-color;
         }
     }
 }
@@ -176,6 +181,12 @@ input:valid {
     .price {
         justify-self: end;
     }
+}
+
+/* TICKETS PAGE */
+.confirm-btn {
+    margin-top: 1rem;
+    align-self: end;
 }
 
 

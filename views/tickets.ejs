@@ -25,19 +25,20 @@
                     <tr>
                         <td>1</td>
                         <td><%= trip.departure %> / <%= trip.arrival %></td>
-                        <td><%= trip.date %></td>
-                        <td>XX:00</td>
-                        <td><%= trip.price %>€</td>
+                        <td><%= formateDate(trip.date) %></td>
+                        <td><%= trip.departureTime %></td>
+                        <td><%= trip.price %> €</td>
                     </tr>
                   <% })%>
 
-
                   <tr class='total-row'>
-                      <td colspan="4">Total</td>
+                      <td>Total</td>
+                      <td colspan="3"></td>
                       <td>387 €</td>
                   </tr>
               </tbody>
         </table>
+        <a href="#"><button class="btn confirm-btn">Confirm</button></a>
     </div>
   </body>
 </html>
