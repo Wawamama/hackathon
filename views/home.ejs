@@ -8,6 +8,18 @@
     
     <%- include('header') %>
 
-    <div class="container"></div>
+    <div class="homepage-container">
+        <h2>One-way ticket :</h2>
+        <form action="/" method='POST' class="inline-form">
+            <div class="form-field">
+                <input type="text" name='from' placeholder="From: Paris, Marseille..." required>
+            </div>
+            <div class="form-field">
+                <input type="text" name='to' placeholder="To: Toulon, Nantes..." required>
+            </div>
+            <input type="submit" class='btn' value="Go">
+        </form>
+        <img src="images/landmark.png" alt="">
+    </div>
   </body>
 </html>
