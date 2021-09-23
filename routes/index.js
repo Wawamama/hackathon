@@ -16,13 +16,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/homepage', async (req, res, next) => {
-
-
-if(req.session.dataCardTrain == undefined){
-  req.session.dataCardTrain = []
-}
-
-  res.render('home', { title: 'Express', city, date });
+    if(req.session.dataCardTrain == undefined){
+      req.session.dataCardTrain = []
+    }
+    res.render('home', { title: 'Express', city, date });
 })
 
 router.get('/no-train', async (req, res, next) => {
@@ -30,7 +27,6 @@ router.get('/no-train', async (req, res, next) => {
 })
 
 router.post('/trains', async (req, res, next) => {
-
     var searchTrains = await journeyModel.find({
       departure: req.body.from,
       arrival: req.body.to,
@@ -48,24 +44,21 @@ router.post('/trains', async (req, res, next) => {
 })
 
 router.get('/tickets', async (req, res, next) => {
+      var trainInCard = await journeyModel.findById(req.query.tripId);
+      var alreadyExists = req.session.dataCardTrain.some(train => train._id == trainInCard._id)
 
-var trainInCard = await journeyModel.findById(req.query.tripId);
-var alreadyExists = req.session.dataCardTrain.some(train => train._id == trainInCard._id)
-
-if(!alreadyExists) {
-  req.session.dataCardTrain.push(trainInCard);
-} 
-res.render('tickets', {dataCardTrain: req.session.dataCardTrain });
+      if(!alreadyExists) {
+        req.session.dataCardTrain.push(trainInCard);
+      } 
+      res.render('tickets', {dataCardTrain: req.session.dataCardTrain });
 })
 
 router.get('/order-confirm', async (req, res, next) => {
-    //var train = await journeyModel.findById(req.query.tripId);
     var trains = JSON.parse(req.query.trains)
     var trainsIds = []
     trains.forEach(train => trainsIds.push(train._id))
     var updatedUser = await userModel.findByIdAndUpdate(req.session.user.id, { journeys: trainsIds}, { new: true })
     res.redirect('/homepage')
-
 })
 
 module.exports = router;
