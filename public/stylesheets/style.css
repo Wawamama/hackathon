@@ -121,7 +121,7 @@ form {
   gap: 1rem;
 }
 
-input[type='text'], input[type='password'] {
+input[type='text'], input[type='password'], input[type='date'] {
   text-decoration: none;
   border: 0;
   border: solid 1px #ccc;
@@ -129,6 +129,10 @@ input[type='text'], input[type='password'] {
   width: 100%;
   outline: none;
   padding: 0.5rem;
+}
+
+input[type='date'] {
+  padding: 0.4rem;
 }
 
 input:focus,
