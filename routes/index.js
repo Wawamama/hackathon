@@ -17,9 +17,11 @@ router.get('/', function(req, res, next) {
 router.get('/homepage', async (req, res, next) => {
 
 
+if(req.session.dataCardTrain == undefined){
+  req.session.dataCardTrain = []
+}
 
-
-  res.render('home', { title: 'Express' });
+  res.render('home', { title: 'Express', city, date });
 })
 
 router.get('/no-train', async (req, res, next) => {
@@ -44,12 +46,11 @@ if (searchTrains.length == 0){
 
 router.get('/tickets', async (req, res, next) => {
 
-var alreadyExist = false;
+var trainInCard = await journeyModel.findById({req.query.tripId});
 
+req.session.dataCardTrain.push(trainInCard);
 
-
-
-  res.render('tickets', { });
+res.render('tickets', {dataCardTrain: req.session.dataCardTrain });
 })
 
 module.exports = router;
