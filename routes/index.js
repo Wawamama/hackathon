@@ -47,9 +47,11 @@ if (searchTrains.length == 0){
 router.get('/tickets', async (req, res, next) => {
 
 var trainInCard = await journeyModel.findById(req.query.tripId);
+var alreadyExists = req.session.dataCardTrain.some(train => train._id == trainInCard._id)
 
-req.session.dataCardTrain.push(trainInCard);
-
+if(!alreadyExists) {
+  req.session.dataCardTrain.push(trainInCard);
+} 
 res.render('tickets', {dataCardTrain: req.session.dataCardTrain });
 })
 
