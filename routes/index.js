@@ -31,8 +31,11 @@ router.post('/trains', async (req, res, next) => {
   })
 console.log(searchTrains);
 
-
-  res.render('trains',{title: "Available Trains", searchTrains} );
+if (!searchTrains){
+  res.redirect('/no-train')
+} else {
+  res.render('trains',{title: "Available Trains", searchTrains, date: req.body.date} );
+}  
 })
 
 module.exports = router;
