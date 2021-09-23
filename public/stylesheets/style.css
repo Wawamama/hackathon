@@ -197,16 +197,20 @@ input:valid {
 .homepage-container table {
   width: 90vw;
   max-width: 900px;
+  margin-top: 1rem;
   border: solid 1px #ccc;
   background-color: #fff;
-}
-
-.homepage-container table tr.total-row {
-  background-color: red;
+  border-radius: 5px;
+  padding: 0.5rem;
 }
 
 .homepage-container table td {
   text-align: center;
+  padding: 1rem;
+}
+
+.homepage-container table .total-row {
+  background-color: #fa8f8f;
 }
 
 /* TRAINS PAGE */
@@ -243,5 +247,13 @@ input:valid {
 .trip-field .price {
   -ms-grid-column-align: end;
       justify-self: end;
+}
+
+/* TICKETS PAGE */
+.confirm-btn {
+  margin-top: 1rem;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
 }
 /*# sourceMappingURL=style.css.map */

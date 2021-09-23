@@ -25,23 +25,25 @@ if(req.session.dataCardTrain == undefined){
 })
 
 router.get('/no-train', async (req, res, next) => {
-  res.render('error', { title: 'Sorry, no train' });
+  res.render('notrain', { title: 'Sorry, no train' });
 })
 
 router.post('/trains', async (req, res, next) => {
 
-  var searchTrains = await journeyModel.find({
-    departure: req.body.from,
-    arrival: req.body.to,
-    date: req.body.date
-  })
-console.log(searchTrains);
+    var searchTrains = await journeyModel.find({
+      departure: req.body.from,
+      arrival: req.body.to,
+      date: req.body.date
+    })
+    console.log(searchTrains);
 
-if (searchTrains.length == 0){
-  res.redirect('/no-train')
-} else {
-  res.render('trains',{title: "Available Trains", searchTrains, date: req.body.date} );
-}  
+    if (searchTrains.length == 0){
+      console.log('no train')
+      res.redirect('/no-train')
+    } else {
+      console.log('ok train')
+      res.render('trains', {title: "Available Trains", searchTrains, date: req.body.date} );
+    }  
 })
 
 router.get('/tickets', async (req, res, next) => {

@@ -9,7 +9,7 @@
     <%- include('header') %>
 
     <div class="homepage-container">
-        <h2>Tickets available on <%= date %> :</h2>
+        <h2>Tickets available on <%= formateDate(date) %> :</h2>
         <ul class='trips'>
 
             <% searchTrains.forEach(train => { %>
