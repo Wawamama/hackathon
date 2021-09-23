@@ -46,7 +46,7 @@ if (searchTrains.length == 0){
 
 router.get('/tickets', async (req, res, next) => {
 
-var trainInCard = await journeyModel.findById({req.query.tripId});
+var trainInCard = await journeyModel.findById(req.query.tripId);
 
 req.session.dataCardTrain.push(trainInCard);
 
