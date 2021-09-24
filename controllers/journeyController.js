@@ -47,11 +47,9 @@ exports.getTickets = async (req, res, next) => {
     res.render('last-trips', { dataCardTrain: userLastTrip.journeys });
   }
 
-<<<<<<< HEAD
   exports.launchToSpace = async (req, res, next) => {
       const cities = await journeyModel.find({})
   }
-=======
   exports.stripe = async (req, res) => {
     var items = [];
     for (var i =0; i<req.session.dataCardTrain.length; i++) {
@@ -89,4 +87,3 @@ exports.getTickets = async (req, res, next) => {
     res.render('index');
    });
   
->>>>>>> 0234b02daedc0de4d5c1fd3dfe645c81cc413652
