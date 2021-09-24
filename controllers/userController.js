@@ -1,4 +1,5 @@
 var userModel = require('../models/users');
+const bcrypt = require('bcrypt')
 
 exports.signUp = async function(req,res,next){
 
@@ -13,7 +14,8 @@ exports.signUp = async function(req,res,next){
         email: req.body.email,
         password: req.body.password,
       })
-    
+      newUser.password = await bcrypt.hash(newUser.password, 12)
+
       var newUserSave = await newUser.save();
     
       req.session.user = {
@@ -31,11 +33,10 @@ exports.signUp = async function(req,res,next){
 
   exports.signIn = async function(req,res,next){
     var searchUser = await userModel.findOne({
-      email: req.body.email,
-      password: req.body.password
+      email: req.body.email
     })
-  
-    if (searchUser!= null) {
+ 
+    if (searchUser!= null && await bcrypt.compare(req.body.password, searchUser.password)) {
       req.session.user = {
         name: searchUser.name,
         id: searchUser._id

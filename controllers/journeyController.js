@@ -36,9 +36,13 @@ exports.getTickets = async (req, res, next) => {
     res.redirect('/homepage')
   }
 
-  exports.getLastTrips = async function(req, res, next) {
+  exports.getLastTrips = async (req, res, next) => {
     console.log(req.session.user);
     var userLastTrip = await userModel.findById(req.session.user.id).populate("journeys");
     console.log(userLastTrip);
     res.render('last-trips', { dataCardTrain: userLastTrip.journeys });
+  }
+
+  exports.launchToSpace = async (req, res, next) => {
+      const cities = await journeyModel.find({})
   }

@@ -11,4 +11,6 @@ router.get('/tickets', journeyController.getTickets)
 router.get('/order-confirm', journeyController.confirmOrder)
 router.get('/last-trips', journeyController.getLastTrips);
 
+//router.get('/gotospace', journeyController.launchToSpace);
+
 module.exports = router;

@@ -23,7 +23,9 @@
                 </tr>
               </thead>
               <tbody>
-                  <% dataCardTrain.forEach(trip => { %>
+                  <% let total = 0 %>
+                  <% dataCardTrain.forEach(trip => { 
+                    total += trip.price %>
                     <tr>
                         <td>1</td>
                         <td><%= trip.departure %> / <%= trip.arrival %></td>
@@ -36,7 +38,7 @@
                   <tr class='total-row'>
                       <td>Total</td>
                       <td colspan="3"></td>
-                      <td>387 €</td>
+                      <td><%= total %> €</td>
                   </tr>
               </tbody>
         </table>
@@ -66,7 +68,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <% dataCardTrain.forEach(trip => { %>
+                        <% let totalBasket = 0 %>
+                        <% dataCardTrain.forEach(trip => { 
+                          totalBasket += trip.price %>
                           <tr>
                               <td>1</td>
                               <td><%= trip.departure %> / <%= trip.arrival %></td>
@@ -79,7 +83,7 @@
                         <tr class='total-row'>
                             <td>Total</td>
                             <td colspan="3"></td>
-                            <td>387 €</td>
+                            <td><%= totalBasket %> €</td>
                         </tr>
                     </tbody>
               </table>

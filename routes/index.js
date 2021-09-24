@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title : 'Express'});
 });
 
-router.get('/homepage', async (req, res, next) => {
+router.get('/homepage', async (req, res, next) => { 
     if(req.session.dataCardTrain == undefined){
       req.session.dataCardTrain = []
     }
