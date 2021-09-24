@@ -71,7 +71,7 @@ exports.getTickets = async (req, res, next) => {
       ],
       mode: 'payment',
       success_url: 'http://localhost:3000/success',
-      cancel_url: 'http://localhost:3000',
+      cancel_url: 'http://localhost:3000/homepage',
     });
   
     res.redirect(303, session.url)
