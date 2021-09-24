@@ -5,9 +5,15 @@
     </div>
     <nav class='nav'>
       <% if (!isConnectionPage) { %>
-      <a href="journeys/last-trips">My Last Trips</a>
       <a href="/users/logout">Log out</a>
+      <% if (isJourneyRoute) { %>
+        <a href="./last-trips">My Last Trips</a>
+      <% } else { %>
+        <a href="/journeys/last-trips">My Last Trips</a>
       <% } %>
+      <% } %>
+
+
       
     </nav>
   </header>
