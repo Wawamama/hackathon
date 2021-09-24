@@ -26,4 +26,12 @@ router.get('/no-train', async (req, res, next) => {
   res.render('notrain', { title: 'Sorry, no train' });
 })
 
+router.get('/success', (req, res) => {
+  res.render('success');
+ });
+
+router.get('/cancel', (req, res) => {
+  res.render('index');
+ });
+
 module.exports = router;
