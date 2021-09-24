@@ -233,6 +233,14 @@ input:valid {
     align-self: end;
 }
 
-
+/* SUCCESS PAGE */
+.success-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 2.5rem;
+    color: #fff;
+}
 
 
