@@ -60,4 +60,7 @@ app.locals.formateDate = (date) => {
   return formatedDate
 }
 
+// Global variables for navbar
+let isConnectionPage = false
+
 module.exports = app;

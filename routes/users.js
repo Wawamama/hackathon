@@ -12,5 +12,6 @@ router.get('/', function(req, res, next) {
 
 router.post('/sign-up', userController.signUp)
 router.post('/sign-in', userController.signIn)
+router.get('/logout', userController.logout)
 
 module.exports = router;
