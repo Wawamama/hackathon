@@ -1,14 +1,19 @@
 const stripe = require('stripe')('sk_test_51JY5vMBB0UFLtaEL2pB5vTENS3NGIXNSaDK33Pl9YsparAfOjEEWZMfQOBBXlDCJB9Vz6ZPs4xEh40IgKF5EWaSr00D9Wn4IRQ');
 var express = require('express');
+const capitalize = require('./../utils/capitalize')
 var router = express.Router();
 
 var journeyModel = require('../models/journeys')
 var userModel = require('../models/users');
 
 exports.getTrains = async (req, res, next) => {
+    var lowerFrom = capitalize(req.body.from)
+    var lowerTo = capitalize(req.body.to)
+
+    console.log(lowerFrom)
     var searchTrains = await journeyModel.find({
-      departure: req.body.from,
-      arrival: req.body.to,
+      departure: lowerFrom,
+      arrival: lowerTo,
       date: req.body.date
     })
     console.log(searchTrains);
