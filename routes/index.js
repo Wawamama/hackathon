@@ -34,4 +34,34 @@ router.get('/cancel', (req, res) => {
   res.render('index');
  });
 
+ // WEEELLLLL
+ router.get('/save', async function(req, res, next) {
+
+  // How many journeys we want
+  var count = 300
+  var city = ["Earth","Mercury","Venus","Jupiter","Saturn","Uranus","Neptune","Pluto"]
+  var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
+
+  // Save  ---------------------------------------------------
+    for(var i = 0; i< count; i++){
+
+    departureCity = city[Math.floor(Math.random() * Math.floor(city.length))]
+    arrivalCity = city[Math.floor(Math.random() * Math.floor(city.length))]
+
+    if(departureCity != arrivalCity){
+
+      var newJourney = new journeyModel ({
+        departure: departureCity , 
+        arrival: arrivalCity, 
+        date: date[Math.floor(Math.random() * Math.floor(date.length))],
+        departureTime:Math.floor(Math.random() * Math.floor(23)) + ":00",
+        price: Math.floor(Math.random() * Math.floor(125)) + 25,
+      });
+       await newJourney.save();
+    }
+
+  }
+  
+});
+
 module.exports = router;
