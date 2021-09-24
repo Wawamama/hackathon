@@ -43,6 +43,6 @@ exports.signUp = async function(req,res,next){
       }
       res.redirect('/homepage')
     } else {
-      res.render('/')
+      res.redirect('/')
     }
   }
