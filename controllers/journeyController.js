@@ -1,3 +1,7 @@
+const stripe = require('stripe')('sk_test_51JY5vMBB0UFLtaEL2pB5vTENS3NGIXNSaDK33Pl9YsparAfOjEEWZMfQOBBXlDCJB9Vz6ZPs4xEh40IgKF5EWaSr00D9Wn4IRQ');
+var express = require('express');
+var router = express.Router();
+
 var journeyModel = require('../models/journeys')
 var userModel = require('../models/users');
 
@@ -33,7 +37,7 @@ exports.getTickets = async (req, res, next) => {
     var trainsIds = []
     trains.forEach(train => trainsIds.push(train._id))
     var updatedUser = await userModel.findByIdAndUpdate(req.session.user.id, { journeys: trainsIds}, { new: true })
-    res.redirect('/homepage')
+    res.redirect('/journeys/checkout')
   }
 
   exports.getLastTrips = async function(req, res, next) {
@@ -42,3 +46,41 @@ exports.getTickets = async (req, res, next) => {
     console.log(userLastTrip);
     res.render('last-trips', { dataCardTrain: userLastTrip.journeys });
   }
+
+  exports.stripe = async (req, res) => {
+    var items = [];
+    for (var i =0; i<req.session.dataCardTrain.length; i++) {
+      items.push({
+          price_data: {
+            currency: 'eur',
+            product_data: {
+              name: req.session.dataCardTrain[i].departure + "/" + req.session.dataCardTrain[i].arrival,
+            },
+            unit_amount: req.session.dataCardTrain[i].price*100,
+          },
+          quantity: 1,
+      })
+    }
+    const session = await stripe.checkout.sessions.create({
+      line_items: items,
+      payment_method_types: [
+        'card',
+      ],
+      mode: 'payment',
+      success_url: 'http://localhost:3000/success',
+      cancel_url: 'http://localhost:3000',
+    });
+  
+    res.redirect(303, session.url)
+  };
+  
+  
+  router.get('/success', (req, res) => {
+    res.render('success');
+   });
+  
+  
+  router.get('/cancel', (req, res) => {
+    res.render('index');
+   });
+  

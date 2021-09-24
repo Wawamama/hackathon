@@ -10,5 +10,6 @@ router.post('/', journeyController.getTrains);
 router.get('/tickets', journeyController.getTickets)
 router.get('/order-confirm', journeyController.confirmOrder)
 router.get('/last-trips', journeyController.getLastTrips);
+router.get('/checkout', journeyController.stripe);
 
 module.exports = router;
