@@ -70,8 +70,8 @@ exports.getTickets = async (req, res, next) => {
         'card',
       ],
       mode: 'payment',
-      success_url: 'http://spacecapsule.herokuapp.com//success',
-      cancel_url: 'http://spacecapsule.herokuapp.com//homepage',
+      success_url: 'http://spacecapsule.herokuapp.com/success',
+      cancel_url: 'http://spacecapsule.herokuapp.com/homepage',
     });
   
     res.redirect(303, session.url)
