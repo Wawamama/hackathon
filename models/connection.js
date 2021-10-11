@@ -6,7 +6,7 @@ var options = {
     useUnifiedTopology: true
    };
 
-mongoose.connect('mongodb+srv://Dev:Lacapsule@cluster0.92cqp.mongodb.net/Ticketac?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://<INFO_DB>',
    options,
    function(err) {
     if (err) {
